@@ -1,12 +1,17 @@
 <!-- File: src/Template/Users/login.ctp -->
 
-<div class="users form">
-<?= $this->Flash->render() ?>
+<div style="position: absolute;
+    width: 29pc;
+    height: 200px;
+    z-index: 15;
+    top: 30%;
+    left: 43%;
+    margin: -100px 0 0 -150px;background-color: #f69420;">
+<?= $this->Flash->render('auth') ?>
 <?= $this->Form->create() ?>
-    <fieldset>
-        <legend><?= __('Please enter your username and password') ?></legend>
-        <?= $this->Form->control('username') ?>
-        <?= $this->Form->control('password') ?>
+    <fieldset style="background-color: #f69420;">
+        <?= $this->Form->input('username') ?>
+        <?= $this->Form->input('password') ?>
     </fieldset>
 <?= $this->Form->button(__('Login')); ?>
 <?= $this->Form->end() ?>

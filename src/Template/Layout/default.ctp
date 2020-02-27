@@ -45,6 +45,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <!--<h1><a href=""><?= $this->fetch('title') ?></a></h1>-->
                 <h1><a>SocialTuga</a></h1>
             </li>
+            <li class="right">
+                <a style="border-left: 1px solid white;height: 20px;margin-left: 6px;margin-right: 10px;"></a> 
+                <?= $this->Html->link(__('Logout'), ['controller' => 'users','action' => 'logout'], array('style' => 'color:white;')) ?>
+            </li>
+            <li class="right">
+                <?= '<a>'.$this->Html->link(__('Users'), ['controller' => 'users','action' => 'index'], array('style' => 'color:white;')).'</a>' ?>
+            </li>
         </ul>
     </nav>
     <?= $this->Flash->render() ?>

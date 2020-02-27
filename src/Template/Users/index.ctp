@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
@@ -10,6 +11,9 @@
         <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Chat'), ['controller' => 'Chat', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Chat'), ['controller' => 'Chat', 'action' => 'add']) ?></li>
+        <li>
+            <?php echo $this->Form->input('link', array('label' => false, "class" => " form-control input-medium", "placeholder" => __('Procurar'), 'id' => 'search'));
+            echo $this->Form->button(null, array('class' => 'btn btn-primary icon-search icon-white', 'onclick' => "location.href='/Users/'+document.getElementById('search').value;")); ?></li>
     </ul>
 </nav>
 <div class="users index large-9 medium-8 columns content">
@@ -32,25 +36,25 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $user): ?>
-            <tr>
-                <td><?= $this->Number->format($user->id_utilizador) ?></td>
-                <td><?= h($user->username) ?></td>
-                <td><?= h($user->password) ?></td>
-                <td><?= h($user->role) ?></td>
-                <td><?= h($user->nome) ?></td>
-                <td><?= $this->Number->format($user->idade) ?></td>
-                <td><?= h($user->morada) ?></td>
-                <td><?= h($user->profissao) ?></td>
-                <td><?= h($user->formacao) ?></td>
-                <td><?= h($user->genero) ?></td>
-                <td><?= h($user->bio) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->id_utilizador]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id_utilizador]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id_utilizador], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id_utilizador)]) ?>
-                </td>
-            </tr>
+            <?php foreach ($users as $user) : ?>
+                <tr>
+                    <td><?= $this->Number->format($user->id_utilizador) ?></td>
+                    <td><?= h($user->username) ?></td>
+                    <td><?= h($user->password) ?></td>
+                    <td><?= h($user->role) ?></td>
+                    <td><?= h($user->nome) ?></td>
+                    <td><?= $this->Number->format($user->idade) ?></td>
+                    <td><?= h($user->morada) ?></td>
+                    <td><?= h($user->profissao) ?></td>
+                    <td><?= h($user->formacao) ?></td>
+                    <td><?= h($user->genero) ?></td>
+                    <td><?= h($user->bio) ?></td>
+                    <td class="actions">
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $user->id_utilizador]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id_utilizador]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id_utilizador], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id_utilizador)]) ?>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>

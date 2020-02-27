@@ -5,6 +5,9 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Auth\DefaultPasswordHasher;
+use Cake\ORM\Entity;
+
 
 /**
  * Users Model
@@ -40,6 +43,13 @@ class UsersTable extends Table
         $this->setDisplayField('id_utilizador');
         $this->setPrimaryKey('id_utilizador');
     }
+
+    /*protected function _setPassword($password)
+    {
+        if (strlen($password) > 0) {
+            return (new DefaultPasswordHasher)->hash($password);
+        }
+    }*/
 
     /**
      * Default validation rules.
